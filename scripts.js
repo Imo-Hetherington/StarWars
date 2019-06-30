@@ -25,7 +25,6 @@ genderheading.textContent = 'Gender'
 ;
 
 fetchData('https://swapi.co/api/people/').then((data) => {
-    //console.log(data);
     data.results.forEach(result => {
       //console.log(result.name)
       const row = document.createElement('tr')
