@@ -45,3 +45,27 @@ fetchData('https://swapi.co/api/people/').then((data) => {
       table.appendChild(row)
     })
 })
+
+$('#searchbutton').click(function() {
+  $("table tr").remove();
+  var searchText= $('#searchtext').val();
+  fetchData('https://swapi.co/api/people/?search=' + searchText).then((data) => {
+    data.results.forEach(result => {
+      const row = document.createElement('tr')
+      const name = document.createElement('td')
+      row.appendChild(name)
+      name.textContent = result.name
+      const height = document.createElement('td')
+      row.appendChild(height)
+      height.textContent = result.height
+      const mass = document.createElement('td')
+      row.appendChild(mass)
+      mass.textContent = result.mass
+      const gender = document.createElement('td')
+      row.appendChild(gender)
+      gender.textContent = result.gender
+
+      table.appendChild(row)
+      })
+  })
+})
